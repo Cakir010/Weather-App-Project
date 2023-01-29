@@ -2,7 +2,6 @@ const input = document.querySelector(".form-control");
 const button = document.querySelector(".btn");
 const box = document.querySelector(".box");
 const URL = button.addEventListener("click", () => {
-    
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=2fbafbe3eb671e5aaa277f9324a67ddf&units=metric`
   )
@@ -10,7 +9,6 @@ const URL = button.addEventListener("click", () => {
     .then((data) => {
       myFunction(data);
     });
-    
 });
 input.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
@@ -29,7 +27,7 @@ let myFunction = (data) => {
   <li class="list-group-item" id='name'>${data.name}</li>
   <li class="list-group-item" id='box'>${data.main.temp}<span>&#8451</span></li>
   <li class="list-group-item" id ='feels'><span>Feels-Like : </span>${data.main.feels_like}</li>
-  <li class="list-group-item " id='desc'><span>Description  </span>${data.weather[0].description}</li>
+  <li class="list-group-item " id='desc'><span>Description : </span>${data.weather[0].description}</li>
   
   
 </ul>
