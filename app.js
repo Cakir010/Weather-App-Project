@@ -1,7 +1,10 @@
 const input = document.querySelector(".form-control");
+
 const button = document.querySelector(".btn");
 const box = document.querySelector(".box");
-const URL = button.addEventListener("click", () => {
+
+const URL = button.addEventListener("click", (e) => {
+  e.preventDefault();
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=2fbafbe3eb671e5aaa277f9324a67ddf&units=metric`
   )
@@ -9,10 +12,12 @@ const URL = button.addEventListener("click", () => {
     .then((data) => {
       myFunction(data);
     });
+  e.target.closest("form").reset();
 });
-input.addEventListener("keydown", (event) => {
-  if (event.key == "Enter") {
-    button.click();
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    myFunction(data);
   }
 });
 
