@@ -1,5 +1,4 @@
 const input = document.querySelector(".form-control");
-
 const button = document.querySelector(".btn");
 const box = document.querySelector(".box");
 
